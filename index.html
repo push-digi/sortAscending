@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<style type="text/css">
+			body {
+					background: #fff;
+					font: 14px/21px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+					color: #444;
+					-webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
+					-webkit-text-size-adjust: 100%;
+			}
+			input[type="text"]{
+				border: 1px solid #ccc;
+				padding: 6px 4px;
+				outline: none;
+				-moz-border-radius: 2px;
+				-webkit-border-radius: 2px;
+				border-radius: 2px;
+				font: 13px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+				color: #000;
+				margin: 0;
+				width: 210px;
+				max-width: 100%;
+				display: block;
+				margin-bottom: 20px;
+				background: #fff;
+			}
+		</style>
+		<script type="text/javascript">
+			function mergeStrings(){
+
+				//get values from input fields
+				var string1 = document.getElementById('string1').value;
+				var string2 = document.getElementById('string2').value;
+				
+				//convert strings to array of numbers
+				var string1 = string1.split(',').map(function(item) {
+    				return parseInt(item, 10);
+				});
+				var string2 = string2.split(',').map(function(item) {
+    				return parseInt(item, 10);
+				});
+
+				//Merge both arrays
+				var merge = string1.concat(string2);
+
+				//Sort them on ascending order
+				alert(merge.sort(function(a, b){return a-b;}));
+
+			}
+		</script>
+	</head>
+	<body>
+		<p>
+			<label>String 1</label>
+			<input type="text" value="2, 4, 5, 9, 16, 24, 30" id="string1" />
+		</p>
+		<p>
+			<label>String 2</label>
+			<input type="text" value="3, 7, 13, 19, 21, 26, 33" id="string2" />
+		</p>
+		<p>
+			<input onclick="mergeStrings();" type="button" value="Merge" />
+		</p>
+	</body>
+</html>
